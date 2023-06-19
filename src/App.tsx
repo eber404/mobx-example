@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { authActions } from './store/auth'
+import { authState } from './store/auth/authState'
+import { observer } from 'mobx-react-lite'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{authState.isAuth ? 'Você está logado' : 'Você está deslogado'}</p>
+        {authState.isAuth ? (
+          <button onClick={authActions.logout}>logout</button>
+        ) : (
+          <button onClick={authActions.login}>login</button>
+        )}
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default observer(App)
