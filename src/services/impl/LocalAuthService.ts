@@ -1,4 +1,4 @@
-import { AuthService } from '../AuthService'
+import { AuthService } from '@/services/AuthService'
 
 export class LocalAuthService implements AuthService {
   private readonly DELAY_IN_MS = 0.3

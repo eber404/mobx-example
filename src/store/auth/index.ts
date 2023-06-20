@@ -1,6 +1,8 @@
-import { LocalAuthService } from '../../services/impl/LocalAuthService'
+import { LocalAuthService } from '@/services/impl/LocalAuthService'
+
 import { authFactory } from './authActions'
 import { authState } from './authState'
+export { authState } from './authState'
 
 const authService = new LocalAuthService()
 
